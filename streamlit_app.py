@@ -9,14 +9,12 @@ song_and_art = {}
 for song in songs:
     song_title = os.path.splitext(song)[0]
     song_and_art[song] = cover
-    
 
 def main():
     st.title('Music Player :)')
     
     current_song_index = st.session_state.get('current_song_index', 0)
     
-    # st.sidebar.title('Playlist')
     song_selection = st.radio('Select Song', song_titles, index=current_song_index)
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
