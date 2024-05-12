@@ -1,7 +1,7 @@
 import streamlit as st
-from pygame import mixer
+import pygame
 
-mixer.init()
+pygame.mixer.init()
 
 songs = []
 
@@ -11,18 +11,18 @@ for song in songs:
 music = st.file_uploader()
 
 try:
-    mixer.load(songs)
+    pygame.mixer.load(songs)
 except Exception:
     st.write('Please Choose a song')
     
 if st.button('Play'):
-    mixer.music.play()
+    pygame.mixer.music.play()
 
 if st.button('Pause'):
-    mixer.music.pause()
+    pygame.mixer.music.pause()
 
 if st.button('Resume'):
-    mixer.music.unpause()
+    pygame.mixer.music.unpause()
 
 if st.button('Stop'):
-    mixer.music.stop()
+    pygame.mixer.music.stop()
