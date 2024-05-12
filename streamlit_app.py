@@ -1,22 +1,13 @@
 import streamlit as st
-import pygame
 import os
 
-#pygame.mixer.init()
-
 songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
-covers = [file for file in os.listdir('Covers') if file.endswith('.png')]
+cover = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
 song_and_art = {}
 for song in songs:
     song_title = os.path.splitext(song)[0]
-    for cover in covers:
-        if song_title in cover:
-            song_and_art[song] = cover
-
-# def play_song(song_path):
-#     pygame.mixer.music.load(song_path)
-#     pygame.mixer.music.play()
+    song_and_art[song] = cover
     
 
 def main():
@@ -34,7 +25,7 @@ def main():
     current_song = songs[current_song_index]
     cover_art = song_and_art.get(current_song, 'cover.png')
     cover_path = f'Covers/{cover_art}'
-    st.sidebar.image(cover_art, use_column_width=True)
+    st.sidebar.image(cover_path, use_column_width=True)
     
     st.success(f'Now Playing: {song_selection}')
     
