@@ -27,6 +27,7 @@ def main():
     
     if st.button("Save Notes"):
         notes_dict[song_selection] = notes  # Save the notes when the button is clicked
+        st.session_state['notes_dict'] = notes_dict
     
     st.write("Saved Notes:", notes_dict[song_selection])
     
