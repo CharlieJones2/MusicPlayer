@@ -19,17 +19,17 @@ def main():
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
-    if song_selection not in notes_dict:
-        notes_dict[song_selection] = ""  # Initialize notes for the song if not already present
+    # if song_selection not in notes_dict:
+    #     notes_dict[song_selection] = ""
     
-    st.write(f'Notes for {song_selection}')
-    notes = st.text_input('', value=notes_dict[song_selection])  # Display existing notes
+    # st.write(f'Notes for {song_selection}')
+    # notes = st.text_input('', value=notes_dict[song_selection])
     
-    if st.button("Save Notes"):
-        notes_dict[song_selection] = notes  # Save the notes when the button is clicked
-        st.session_state['notes_dict'] = notes_dict
+    # if st.button("Save Notes"):
+    #     notes_dict[song_selection] = notes
+    #     st.session_state['notes_dict'] = notes_dict
     
-    st.write("Saved Notes:", notes_dict[song_selection])
+    # st.write("Saved Notes:", notes_dict[song_selection])
     
     current_song = songs[current_song_index]
     cover_path = 'Covers/cover.png'
