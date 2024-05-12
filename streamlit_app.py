@@ -18,6 +18,11 @@ def main():
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
+    for song in songs:
+        if song_selection == song:
+            st.write(f'Notes for {song_selection}')
+            notes = st.text_input()
+    
     current_song = songs[current_song_index]
     cover_path = 'Covers/cover.png'
     st.image(cover_path, use_column_width=True)
