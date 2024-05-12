@@ -13,7 +13,7 @@ def main():
     st.title('Music Player :)')
     
     current_song_index = st.session_state.get('current_song_index', 0)
-    st.markdown("![He be dancin](https://media.tenor.com/yRSnf6wABQ4AAAAi/pato-duck.gif)")
+    st.markdown('![He be dancin](<img src="https://media.tenor.com/yRSnf6wABQ4AAAAi/pato-duck.gif" height="100" width="100" />)')
     song_selection = st.radio('', songs, index=current_song_index)
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
