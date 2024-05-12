@@ -2,7 +2,7 @@ import streamlit as st
 import os
 
 songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
-song_titles = [file.split('.')[0].title() for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
+# song_titles = [file.split('.')[0].title() for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
 cover = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
 song_and_art = {}
@@ -15,7 +15,7 @@ def main():
     
     current_song_index = st.session_state.get('current_song_index', 0)
     
-    song_selection = st.radio('Select Song', song_titles, index=current_song_index)
+    song_selection = st.radio('Select Song', songs, index=current_song_index)
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
