@@ -21,7 +21,7 @@ def main():
     for song in songs:
         if song_selection == song:
             st.write(f'Notes for {song_selection}')
-            notes = st.text_input()
+            notes = st.text_input('')
     
     current_song = songs[current_song_index]
     cover_path = 'Covers/cover.png'
