@@ -9,7 +9,7 @@ covers = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
 song_and_art = {}
 for song in songs:
-    song_title = os.path.splittext(song)[0]
+    song_title = os.path.splitext(song)[0]
     for cover in covers:
         if song_title in cover:
             song_and_art[song] = cover
