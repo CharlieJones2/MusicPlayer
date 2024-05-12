@@ -1,8 +1,7 @@
 import streamlit as st
 import os
 
-songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
-song_titles = [file.split('.')[0].title() for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
+songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
 cover = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
 song_and_art = {}
@@ -12,7 +11,6 @@ for song in songs:
 
 def main():
     st.title('Music Player :)')
-    st.write(song_titles)
     
     current_song_index = st.session_state.get('current_song_index', 0)
     
