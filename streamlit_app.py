@@ -2,7 +2,7 @@ import streamlit as st
 import pygame
 import os
 
-pygame.mixer.init()
+#pygame.mixer.init()
 
 songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
 covers = [file for file in os.listdir('Covers') if file.endswith('.png')]
@@ -14,9 +14,10 @@ for song in songs:
         if song_title in cover:
             song_and_art[song] = cover
 
-def play_song(song_path):
-    pygame.mixer.music.load(song_path)
-    pygame.mixer.music.play()
+# def play_song(song_path):
+#     pygame.mixer.music.load(song_path)
+#     pygame.mixer.music.play()
+    
 
 def main():
     st.title('Music Player :)')
