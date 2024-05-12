@@ -23,8 +23,8 @@ def main():
     st.sidebar.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
     current_song = songs[current_song_index]
-    cover_art = song_and_art.get(current_song, 'cover.png')
-    cover_path = f'Covers/{cover_art}'
+    # cover_art = song_and_art.get(current_song, 'cover.png')
+    cover_path = 'Covers/cover.png'
     st.sidebar.image(cover_path, use_column_width=True)
     
     st.success(f'Now Playing: {song_selection}')
