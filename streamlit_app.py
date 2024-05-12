@@ -8,6 +8,7 @@ song_and_art = {}
 for song in songs:
     song_title = os.path.splitext(song)[0]
     song_and_art[song] = cover
+notes_dict = {}
 
 def main():
     st.title('Music Player :)')
@@ -18,10 +19,16 @@ def main():
     
     st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
-    for song in songs:
-        if song_selection == song:
-            st.write(f'Notes for {song_selection}')
-            notes = st.text_input('')
+    if song_selection not in notes_dict:
+        notes_dict[song_selection] = ""  # Initialize notes for the song if not already present
+    
+    st.write(f'Notes for {song_selection}')
+    notes = st.text_input('', value=notes_dict[song_selection])  # Display existing notes
+    
+    if st.button("Save Notes"):
+        notes_dict[song_selection] = notes  # Save the notes when the button is clicked
+    
+    st.write("Saved Notes:", notes_dict[song_selection])
     
     current_song = songs[current_song_index]
     cover_path = 'Covers/cover.png'
