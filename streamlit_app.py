@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 
-songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
+songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
 song_titles = [file.split('.')[0].title() for file in os.listdir('Songs') if file.endswith('.mp3')].sort()
 cover = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
