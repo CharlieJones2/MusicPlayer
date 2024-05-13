@@ -19,8 +19,8 @@ def main():
     
     np = st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0, loop=True)
     
-    if np.end_time == len(np):
-        current_song_index+=1
+    #if np.end_time == len(np):
+    #    current_song_index+=1
     
     # if song_selection not in notes_dict:
     #     notes_dict[song_selection] = ""
@@ -42,6 +42,15 @@ def main():
     st.markdown('![He be dancin](https://media.tenor.com/yRSnf6wABQ4AAAAi/pato-duck.gif)')
         
     st.session_state.current_song_index = current_song_index
+    
+    if np:
+        np.js_on_event('ended', """
+            var currentIndex = {current_song_index};
+            var nextIndex = (currentIndex + 1) % {len(songs)};
+            document.querySelector('audio').src = 'Songs/' + '{songs[nextIndex]}';
+            document.querySelector('audio').play();
+            Streamlit.setSessionState('current_song_index', nextIndex);
+        """)
     
 if __name__ == '__main__':
     main()
