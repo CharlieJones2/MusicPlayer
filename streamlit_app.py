@@ -17,7 +17,10 @@ def main():
     
     song_selection = st.radio('scroll for a surprise maybe who knows', songs, index=current_song_index)
     
-    st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0, loop=True)
+    np = st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0, loop=True)
+    
+    if np.end_time == len(np):
+        current_song_index+=1
     
     # if song_selection not in notes_dict:
     #     notes_dict[song_selection] = ""
