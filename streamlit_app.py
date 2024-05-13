@@ -5,10 +5,8 @@ import time
 songs = [file for file in os.listdir('Songs') if file.endswith('.mp3')]
 cover = [file for file in os.listdir('Covers') if file.endswith('.png')]
 
-song_and_art = {}
 for song in songs:
     song_title = os.path.splitext(song)[0]
-    song_and_art[song] = cover
 
 def main():
     st.title('Music Player :)')
@@ -17,18 +15,8 @@ def main():
     
     song_selection = st.radio('scroll for a surprise maybe who knows', songs, index=current_song_index)
     
-    np = st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
+    st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
-    duration = st.session_state.get('duration', 0)
-    if duration > 0:
-        current_time = st.session_state.get('current_time', 0)
-        if current_time >= duration:
-            current_song_index += 1
-            if current_song_index >= len(songs):
-                current_song_index = 0
-            st.session_state.current_song_index = current_song_index
-    
-    current_song = songs[current_song_index]
     cover_path = 'Covers/cover.png'
     st.image(cover_path, use_column_width=True)
     
