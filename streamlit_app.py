@@ -17,7 +17,7 @@ def main():
     
     song_selection = st.radio('scroll for a surprise maybe who knows', songs, index=current_song_index)
     
-    np = st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0, loop=True)
+    np = st.audio(f'Songs/{song_selection}', format='audio/mp3', start_time=0)
     
     duration = st.session_state.get('duration', 0)
     if duration > 0:
